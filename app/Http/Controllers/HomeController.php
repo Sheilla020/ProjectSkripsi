@@ -35,13 +35,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function keputusan(Keputusan $keputusan)
+    public function keputusan()
     {
         return view('keputusan.kriteria', [
-            'title' => $keputusan->kriteria,
-            'kriteria' => $keputusan->kriteria,
-            $keputusan = Keputusan::all(),
-            'keputusan' => $keputusan,
             'kriteria' => Kriteria::all(),
             'divisi' => Divisi::all(),
             'posisi' => Posisi::all(),

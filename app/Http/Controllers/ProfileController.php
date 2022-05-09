@@ -149,8 +149,7 @@ class ProfileController extends Controller
                 'fileijz' => $filecv,
             ]);
             $profile->pengalaman()->createMany($this->setFieldPengalaman($request));
-            $profile->pengalaman()->createMany($this->setFieldSertifikat($request));
-            return redirect()->route('profile.index');
+           return redirect()->route('profile.index');
         } catch (\Throwable $th) {
             DB::rollBack();
             dd("Create faild:" . $th->getMessage());

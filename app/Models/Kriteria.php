@@ -8,10 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Kriteria extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = ['code', 'nama_kriteria'];
+    
 
-    public function keputusan()
-    {
-        return $this->belongsTo(Keputusan::class);
+    public function comparisons(){
+        return $this->hasMany(KriteriaComparison::class, 'first_kriteria_id')->orderBy('second_kriteria_id', 'asc');
     }
+    
+    public function comparisonsX() {
+        return $this->hasMany(KriteriaComparison::class, 'first_kriteria_id')->orderBy('second_kriteria_id', 'asc');
+    }
+
+    public function comparisonsY() {
+        return $this->hasMany(KriteriaComparison::class, 'second_kriteria_id');
+    }
+
+    public function priority(){
+        return $this->hasOne(KriteriaPrioritie::class);
+    }
+
+    
 }

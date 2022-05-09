@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKriteriasTable extends Migration
+class CreateKriteriaNormalizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateKriteriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kriterias', function (Blueprint $table) {
+        Schema::create('kriteria_normalizations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
-            $table->string('nama_kriteria');
+            $table->integer('comparison_id')->unsigned();
+            $table->float('value', 8, 4);
             $table->timestamps();
+
+            $table->foreign('comparison_id')->references('id')->on('kriteria_comparisons')->onDelete('cascade');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateKriteriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kriterias');
+        Schema::dropIfExists('kriteria_normalizations');
     }
 }

@@ -14,6 +14,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('kriteria.index') }}">
+                    <span data-feather="file"></span>
+                    Kriteria Rekutmen
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="users"></span>
                     Users

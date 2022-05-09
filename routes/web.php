@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ComparisonController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProsessRekrutmen;
 use App\Models\DetailProfile;
 use App\Models\Divisi;
+use App\Models\KriteriaComparison;
 use App\Models\Posisi;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +30,12 @@ Route::get('/', function () {
 });
 
 Route::get('home', [HomeController::class, 'index'])->name('index');
-// Route::get('kriteria', [ProsessRekrutmen::class, 'index'])->name('index');
+
+Route::resource('kriteria', KriteriaController::class);
+Route::resource('comparison', ComparisonController::class);
+
 Route::get('createcv', [HomeController::class, 'createCV'])->name('createCV');
 Route::resource('profile', ProfileController::class);
-Route::get('inputperbandingan', [ProsessRekrutmen::class, 'inputperbandingan'])->name('inputperbandingan');
 
 Route::get('/{kriteria_for:kriteria_for}', [HomeController::class, 'keputusan'])->name('keputusan');
+    

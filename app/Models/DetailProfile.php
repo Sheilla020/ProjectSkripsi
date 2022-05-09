@@ -26,8 +26,6 @@ class DetailProfile extends Model
         return $this->hasMany(PengalamanKerja::class);
     }
 
-
-
     public function posisi()
     {
         return $this->belongsTo(Posisi::class, 'id_posisi');

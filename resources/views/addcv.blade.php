@@ -224,7 +224,7 @@
                                 </div>
 
                                 <!-- Sertifikat -->
-                                <div id="list-Sertifikat">
+                                <!-- <div id="list-Sertifikat">
                                     @if (old('pengalaman'))
                                     @foreach (old('sertifikat') as $key => $sertifikat)
                                     <div data-index-sertifikat="{{ $key }}">
@@ -322,7 +322,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <!-- pengalaman kerja -->
